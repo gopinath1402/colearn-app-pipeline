@@ -11,6 +11,7 @@ phases:
       - REPOSITORY_URI=589842073811.dkr.ecr.us-east-1.amazonaws.com/colearnrepo
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - echo $REPOSITORY_URI $IMAGE_TAG $COMMIT_HASH
   build:
     commands:
       - echo Build started on `date`
