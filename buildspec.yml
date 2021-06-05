@@ -13,7 +13,8 @@ phases:
       - IMAGE_TAG=${COMMIT_HASH:=latest}
       - echo $REPOSITORY_URI $IMAGE_TAG $COMMIT_HASH
       - cat /etc/os-release
-      - systemctl status docker
+      - doker images
+      - docker ps -a
   build:
     commands:
       - echo Build started on `date`
