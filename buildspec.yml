@@ -28,5 +28,5 @@ phases:
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - printf '[{"name":"colearn_task","imageUri":"%s"}]' $REPOSITORY_URI:latest >.json image
       - echo Build completed on `date`
-  artifacts:
-    files: image.json
+artifacts:
+  files: image.json
