@@ -12,5 +12,10 @@ RUN bundle install
 ENV RAILS_ENV=development
 RUN bundle exec rake assets:precompile --trace
 #CMD export SECRET_KEY_BASE=`bundle exec rake secret`
-CMD rails s -b 0.0.0.0 -p 3000
 # docker run -it -p $PORT:$PORT -e SECRET_KEY_BASE=$SECRET_KEY_BASE -e PG_DB=$PG_DB -e PG_USER=$PG_USER -e PG_PASS=$PG_PASS -e PG_HOST=$PG_HOST -e PG_PORT=$PG_PORT -e PORT=$PORT faraohh/weby:latest
+
+RUN chmod +x /weby/entry.sh
+
+ENTRYPOINT ["sh","/weby/entry.sh"]
+
+CMD rails s -b 0.0.0.0 -p 3000
