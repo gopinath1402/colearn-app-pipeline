@@ -3,8 +3,6 @@ set -e
 
 rm -f /weby/tmp/pids/server.pid
 
-rake data:create
-rake data:schema:load
-rake data:migrate
+rake db:create && rake db:schema:load && rake db:migrate
 
 exec "$@"
